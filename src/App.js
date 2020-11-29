@@ -2,23 +2,24 @@ import React from 'react';
 import './App.css';
 
 class App extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = {
       userName: '',
       passWork: '',
       note: '',
-      gender: '',
-      language: 'english',
+      gender: 'male',
+      language: 'en',
       checkbox: true
     }
   }
+
   onHandleChange = e => {
     const { name } = e.target
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
+
     this.setState({
-      [name]: value,
+      [name]: value
     })
   }
 
@@ -47,8 +48,8 @@ class App extends React.Component {
                           type="text"
                           name="userName"
                           className="form-control"
-                          value={ this.state.userName }
-                          onChange={ this.onHandleChange } />
+                          onChange={ this.onHandleChange }
+                         />
                       </div>
 
                       <div className="form-group">
@@ -57,8 +58,8 @@ class App extends React.Component {
                           type="text"
                           name="passWork"
                           className="form-control"
-                          value={ this.state.passWork }
-                          onChange={ this.onHandleChange } />
+                          onChange={ this.onHandleChange }
+                        />
                       </div>
 
                       <div className="form-group">
@@ -68,14 +69,13 @@ class App extends React.Component {
                           className="form-control"
                           rows="3"
                           onChange={ this.onHandleChange }
-                        ></textarea>
+                        />
                       </div>
 
                       <label >Giới tính:</label>
                       <select
                         className="form-control"
                         name="gender"
-                        value={ this.state.gender }
                         onChange={ this.onHandleChange }
                       >
                         <option value="male">Male</option>
@@ -88,9 +88,9 @@ class App extends React.Component {
                           <input
                             type="radio"
                             name="language"
-                            value="english"
                             onChange={ this.onHandleChange }
-                            checked={ this.state.language === 'english' }
+                            value="en"
+                            checked={ this.state.language === 'en'}
                           />
                           English
                         </label><br />
@@ -98,9 +98,9 @@ class App extends React.Component {
                           <input
                             type="radio"
                             name="language"
-                            value="vietnamese"
                             onChange={ this.onHandleChange }
-                            checked={ this.state.language === 'vietnamese' }
+                            value="vi"
+                            checked={ this.state.language === 'vi'}
                           />
                           Việt Nam
                         </label>
@@ -111,9 +111,9 @@ class App extends React.Component {
                           <input
                             type="checkbox"
                             name="checkbox"
-                            value={ true }
                             onChange={ this.onHandleChange }
-                            checked={ this.state.checkbox === true}
+                            value= { true }
+                            checked={ this.state.checkbox === true }
                           />
                           Checkbox
                         </label>
